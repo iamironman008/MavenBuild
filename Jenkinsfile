@@ -13,7 +13,7 @@ node('bhu') {
 	}
 
 	stage ('Test Cases Execution'){
-		sh "mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Pcoverage-per-test"
+		sh "${mvnHome}/bin/mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Pcoverage-per-test"
 	}
 
 	stage ('Sonar Analysis'){
