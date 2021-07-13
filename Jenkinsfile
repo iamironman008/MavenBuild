@@ -1,4 +1,4 @@
-node('master') {
+node('bhu') {
   ansiColor('xterm') {
 	stage ('checkout code'){
 		checkout scm
