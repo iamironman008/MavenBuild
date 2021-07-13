@@ -1,11 +1,15 @@
 node('bhu') {
-  ansiColor('xterm') {
+  ansiColor('xterm') 
+	def mvnHome
+	stage ('Preperation'){
+		mvnHome = tool 'Maven3'
+	}
 	stage ('checkout code'){
 		checkout scm
 	}
 	
 	stage ('Build'){
-		sh "mvn clean install -Dmaven.test.skip=true"
+		sh "${mvnHome}/bin/mvn clean install -Dmaven.test.skip=true"
 	}
 
 	stage ('Test Cases Execution'){
